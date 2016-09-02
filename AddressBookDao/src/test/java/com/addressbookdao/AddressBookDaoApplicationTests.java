@@ -20,13 +20,13 @@ public class AddressBookDaoApplicationTests {
 	
 	@Test
 	public void getContacts(){
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/demo/hello", String.class);
-		//ResponseEntity<String> response = restTemplate.getForEntity("http://api.geonames.org/weatherJSON?formatted=true&north=44.1&south=-9.9&east=-22.4&west=55.2&username=demo&style=full", String.class);
-		
-		if(HttpStatus.OK == response.getStatusCode()){
-			System.out.println("HTTP Status ok");
-			System.out.println("ResponseBody: " + response.getBody());
-		}
+//		RestTemplate restTemplate = new RestTemplate();
+//		ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/contacts/getall", String.class);
+//		//ResponseEntity<String> response = restTemplate.getForEntity("http://api.geonames.org/weatherJSON?formatted=true&north=44.1&south=-9.9&east=-22.4&west=55.2&username=demo&style=full", String.class);
+//		
+//		if(HttpStatus.OK == response.getStatusCode()){
+//			System.out.println("HTTP Status ok");
+//			System.out.println("ResponseBody: " + response.getBody());
+//		}
 	}
 }
