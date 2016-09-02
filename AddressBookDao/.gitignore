@@ -1,0 +1,10 @@
+/target/
+/.classpath
+/.project
+/.settings/
+/.mvn/
+/.contacts.db.log
+/.contacts.db.properties
+/.contacts.db.script
+/mvnw
+/mvnw.cmd
