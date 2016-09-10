@@ -16,7 +16,7 @@ import com.addressbookdao.repository.AddressBookRepository;
 @RestController
 @RequestMapping("/contacts")
 public class AddressBookController {
-	private static Logger logger = LogManager.getLogger();
+	//private static Logger logger = LogManager.getLogger();
 	private AddressBookRepository addressBookRepository;
 	
 	public AddressBookController() {
@@ -29,10 +29,10 @@ public class AddressBookController {
 	
 	@RequestMapping(value = "/getall", method = RequestMethod.GET)
 	public ContactDataEntryList getAllContacts(){
-		logger.info("getAllContacts start");
+		//logger.info("getAllContacts start");
 		ContactDataEntryList contactDataEntryList = new ContactDataEntryList();
 		contactDataEntryList.setContactDataEntryList(this.addressBookRepository.findAll());
-		logger.info("getAllContacts end");
+		//logger.info("getAllContacts end");
 		return contactDataEntryList;
 	}
 
