@@ -17,7 +17,7 @@ public class LoggingAspect {
 	
 	@Before("execution(* com.addressbookdao.controller.AddressBookController.*(..))")
 	public void before(JoinPoint joinPoint){
-		String className = joinPoint.getSignature().getClass().getName();
+		String className = joinPoint.getTarget().getClass().getName();
 		String methodName = joinPoint.getSignature().getName();
 		String arguments = Arrays.toString(joinPoint.getArgs());
 		logger.info("Before " + className + "." + methodName + " with arguments: " + arguments);
@@ -25,7 +25,7 @@ public class LoggingAspect {
 
 	@AfterReturning(pointcut="execution(* com.addressbookdao.controller.AddressBookController.*(..))", returning="result")
 	public void afterPlusReturnValue(JoinPoint joinPoint, Object result){
-		String className = joinPoint.getSignature().getClass().getName();
+		String className = joinPoint.getTarget().getClass().getName();
 		String methodName = joinPoint.getSignature().getName();
 		logger.info("After " + className + "." + methodName + " with result: " + result);
 	}
