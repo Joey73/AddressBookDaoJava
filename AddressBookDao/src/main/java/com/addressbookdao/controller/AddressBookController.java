@@ -1,7 +1,5 @@
 package com.addressbookdao.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +14,6 @@ import com.addressbookdao.repository.AddressBookRepository;
 @RestController
 @RequestMapping("/contacts")
 public class AddressBookController {
-	//private static Logger logger = LogManager.getLogger();
 	private AddressBookRepository addressBookRepository;
 	
 	public AddressBookController() {
@@ -29,10 +26,8 @@ public class AddressBookController {
 	
 	@RequestMapping(value = "/getall", method = RequestMethod.GET)
 	public ContactDataEntryList getAllContacts(){
-		//logger.info("getAllContacts start");
 		ContactDataEntryList contactDataEntryList = new ContactDataEntryList();
 		contactDataEntryList.setContactDataEntryList(this.addressBookRepository.findAll());
-		//logger.info("getAllContacts end");
 		return contactDataEntryList;
 	}
 
