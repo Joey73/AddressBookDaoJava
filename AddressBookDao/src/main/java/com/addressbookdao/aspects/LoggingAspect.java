@@ -17,7 +17,17 @@ public class LoggingAspect {
 	public void before(JoinPoint joinPoint){
 		String className = joinPoint.getTarget().getClass().getName();
 		String methodName = joinPoint.getSignature().getName();
-		
+		logger.info("Before " + className + "." + methodName + "(" + getArgumentsString(joinPoint) + ")");
+	}
+
+	@AfterReturning(pointcut="execution(* com.addressbookdao.controller.AddressBookController.*(..))", returning="result")
+	public void afterPlusReturnValue(JoinPoint joinPoint, Object result){
+		String className = joinPoint.getTarget().getClass().getName();
+		String methodName = joinPoint.getSignature().getName();
+		logger.info("After " + className + "." + methodName + " with result: " + result);
+	}
+	
+	private String getArgumentsString(JoinPoint joinPoint) {
 		Object[] args = joinPoint.getArgs();
 		StringBuffer argumentsSb = new StringBuffer();
 		for(int i = 0; i < args.length; i++){
@@ -26,14 +36,6 @@ public class LoggingAspect {
 				argumentsSb.append(", ");
 			}
 		}
-		
-		logger.info("Before " + className + "." + methodName + "(" + argumentsSb.toString() + ")");
-	}
-
-	@AfterReturning(pointcut="execution(* com.addressbookdao.controller.AddressBookController.*(..))", returning="result")
-	public void afterPlusReturnValue(JoinPoint joinPoint, Object result){
-		String className = joinPoint.getTarget().getClass().getName();
-		String methodName = joinPoint.getSignature().getName();
-		logger.info("After " + className + "." + methodName + " with result: " + result);
+		return argumentsSb.toString();
 	}
 }
