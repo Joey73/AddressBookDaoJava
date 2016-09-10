@@ -15,10 +15,6 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
 	private static Logger logger = LogManager.getLogger();
 	
-	/**
-	 * Advice - Print out the name of the method the pointcut refers to.
-	 * @param joinPoint
-	 */
 	@Before("execution(* com.addressbookdao.controller.AddressBookController.*(..))")
 	public void before(JoinPoint joinPoint){
 		String className = joinPoint.getSignature().getClass().getName();
