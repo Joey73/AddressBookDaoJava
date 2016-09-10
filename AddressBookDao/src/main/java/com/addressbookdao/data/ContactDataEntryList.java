@@ -20,4 +20,16 @@ public class ContactDataEntryList {
 		this.contactDataEntryList = contactDataEntryList;
 	}
 
+	@Override
+	public String toString(){
+		StringBuffer result = new StringBuffer();
+		for(int i = 0; i < this.contactDataEntryList.size(); i++){
+			result.append(this.contactDataEntryList.get(i).toString());
+			if(i != this.contactDataEntryList.size() - 1){
+				result.append(" - ");
+			}
+		}
+		return result.toString();
+	}
+	
 }

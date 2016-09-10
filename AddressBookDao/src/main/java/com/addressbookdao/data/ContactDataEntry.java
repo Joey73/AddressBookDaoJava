@@ -103,4 +103,18 @@ public class ContactDataEntry {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	@Override
+	public String toString(){
+		StringBuffer result = new StringBuffer();
+		result.append("Id: " + getId());
+		result.append(", FirstName: " + getFirstName());
+		result.append(", LastName: " + getLastName());
+		result.append(", Address1: " + getAddress1());
+		result.append(", Address2: " + getAddress2());
+		result.append(", City: " + getCity());
+		result.append(", Zip: " + getZip());
+		result.append(", Country: " + getCountry());
+		return result.toString();
+	}
 }
