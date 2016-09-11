@@ -31,5 +31,4 @@ public class ContactDataEntryList {
 		}
 		return result.toString();
 	}
-	
 }
