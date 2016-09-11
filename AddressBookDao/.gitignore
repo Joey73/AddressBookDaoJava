@@ -6,6 +6,7 @@
 /.contacts.db.log
 /.contacts.db.properties
 /.contacts.db.script
+/.contacts.db.lck
 /mvnw
 /mvnw.cmd
 /logs/
